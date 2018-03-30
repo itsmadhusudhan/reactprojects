@@ -3,13 +3,12 @@ import React from 'react';
 const Header=()=>{
   return (
     <header>
-      <h1>Todo Master</h1>
+      <h1 className="heading">Todo Master</h1>
     </header>
   )
 }
 
 export default Header;
-
 
 
 

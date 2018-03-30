@@ -4,11 +4,10 @@ class InputForm extends React.Component {
   handleSendInput = (e) => {
     e.preventDefault();
     const option = e.target.elements.todo.value.trim();
-    // console.log(option);
     this.props.handleInput(option);
     e.target.elements.todo.value='';    
   };
-
+  
   render() {
     return (
       <form onSubmit={this.handleSendInput}>

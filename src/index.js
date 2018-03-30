@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoLayout from "./components/TodoLayout";
+import DragLayout from "./components/DragLayout";
 
 
-ReactDOM.render(<TodoLayout/>, document.getElementById("root"));
+ReactDOM.render(<DragLayout/>, document.getElementById("root"));
