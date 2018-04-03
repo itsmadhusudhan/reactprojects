@@ -1,22 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 const Header = props => {
   return (
-    <div>
-      <h1>Headers </h1>
-      <nav>
-        <NavLink exact={true} activeClassName="is-active" to="/">
-          Dashboard
-        </NavLink>
-        <NavLink exact={true} activeClassName="is-active" to="/about">
-          About
-        </NavLink>
-        <NavLink exact={true} activeClassName="is-active" to="/small">
-          SmallFunction
-        </NavLink>
-      </nav>
+    <div className="header">
+      <h1 className="title">JavaScript Array Explorer</h1>
+      <p className="subtitle">
+        Find the array method you need without digging through the docs
+      </p>
     </div>
   );
-};
+};  
 
 export default Header;
