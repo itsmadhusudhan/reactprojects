@@ -1,5 +1,4 @@
-export default {
-  state: {
+const Methods= {
     selectedMethod: '',
     adding: [
       {
@@ -285,4 +284,6 @@ export default {
       ]
     }
   }
-}
+
+
+  export default Methods;

@@ -3,64 +3,64 @@ export default {
     {
       item: "...",
       methods: {
-        title: "..",
+        title: "...",
         child: []
       }
     },
     {
       item: "add item or other arrays",
+      title: "I need to add",
       methods: {
-        title: "I need to add",
         child: [
+          "...",
           "element/s to an array",
-          "element/s to the end of an array",
-          "element/s to front an array",
-          "this array to other array(s) and/ value(s)"
+          "elements to the end of an array",
+          "elements to the front of an array",
+          "this array to other array(s) and/or value(s)"
         ]
       }
     },
     {
       item: "remove items",
+      title: "I need to remove",
       methods: {
-        title: "..",
-        child: []
+        child: ["...", "element/s from an array"]
       }
     },
     {
       item: "find items",
+      title: "..",
       methods: {
-        title: "..",
         child: []
       }
     },
     {
       item: "walk over items",
+      title: "..",
       methods: {
-        title: "..",
         child: []
       }
     },
     {
       item: "return a string",
+      title: "..",
       methods: {
-        title: "..",
         child: []
       }
     },
     {
       item: "order an array",
+      title: "..",
       methods: {
-        title: "..",
         child: []
       }
     },
     {
       item: "something else",
+      title: "..",
       methods: {
-        title: "..",
         child: []
       }
     }
   ]
 };
-

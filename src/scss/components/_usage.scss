@@ -1,0 +1,20 @@
+.usage{
+  flex-grow: 1;
+}
+
+.usage__title{
+  color:$dark-blue;
+  margin-bottom: 10px;
+}
+
+.usage__board{
+  font-size: 20px;
+  background: #333;
+  border:3px solid $title-red;
+  border-radius: 3px;
+  width: 100%;
+  min-height: 200px;
+  color: #fff;
+  padding: 30px;
+  letter-spacing: 2px;
+}

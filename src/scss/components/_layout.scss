@@ -1,3 +1,18 @@
+.array__area{
+  width: 100%;
+  display: flex;
+  padding: 50px;
+}
+
 .selection__area{
   padding-top:50px;
+  flex: 1;
+  & select{
+    margin:0 0 30px 10px;
+    padding:3px 0;
+  }
+}
+
+label{
+  font-size: 20px;
 }
