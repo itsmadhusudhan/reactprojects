@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoLayout from "./components/TodoLayout";
+import Layout from "./components/Layout";
+import AppRouter from "./routers/AppRouter"
 
-
-ReactDOM.render(<TodoLayout/>, document.getElementById("root"));
+ReactDOM.render(<AppRouter/>, document.getElementById("root"));
