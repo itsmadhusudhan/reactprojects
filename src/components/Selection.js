@@ -1,45 +1,39 @@
 import React from "react";
+import ArrayMethods from "./utils/ArrayMethods";
+import Methods from "./utils/Methods";
 import SelectOption from "./SelectOption";
-import Methods from "./Methods";
 
 const Selection = props => {
   return (
-    <div className="selection__area">
-      <label htmlFor="first__item">I have an array, I would like to</label>
-      <select
-        value={props.value}
-        id="first__item"
-        name="select"
-        onChange={props.handleChange}
-      >
-        {props.demo.map((option, index) => {
-          return <SelectOption key={index} option={option} childs={true} />;
-        })}
-      </select>
+    <div className="selection__layout">
+      <div id="first__method">
+        <label htmlFor="methodoptions">{ArrayMethods.firstMethod}</label>
+        <select
+          id="methodoptions"
+          name="select"
+          defaultValue="..."
+          onChange={props.handleChange}
+        >
+          <option value="..." disabled>
+            ...
+          </option>
+          {ArrayMethods.primaryOptions.map((option, index) => {
+            return <SelectOption key={index} option={option} />;
+          })}
+        </select>
+      </div>
 
-      <br />
-      {props.demo.map(
-        (option, index) =>
-          props.value === option.item && props.value !== "..." ? (
-            <div key={index}>
-              <label>{option.title}</label>
-              <select
-              defaultValue="..."
-                value={props.selectedMethod}
-                id="next__item"
-                name="selectchild"
-                onChange={props.handleMethodChange}
-              >
-                {option.methods.map((el, index) => {
-                  return <SelectOption key={index} el={el} childs={false} />;
-                })}
-                {console.log(props.selectedMethod)}
-              </select>
-            </div>
-          ) : (
-            " "
-          )
-      )}
+      <div id="option__method">
+        <label>{ArrayMethods.methodOptions}</label>
+
+        {console.log(props.primaryOption)}
+        <select defaultValue="...">
+          <option value="..." disabled>
+            ...
+          </option>
+          <option>world</option>
+        </select>
+      </div>
     </div>
   );
 };

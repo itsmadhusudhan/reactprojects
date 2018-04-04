@@ -1,15 +1,10 @@
 import React from "react";
 
-const SelectOption = props => {
-  return props.childs ? (
-    <option disabled={props.option.item !== "..." ? "" : "disabled"}>
-      {props.option.item}
-    </option>
-  ) : (
-    <option disabled={props.el.shortDesc !== "..." ? "" : "disabled"}>
-      {props.el.shortDesc}
-    </option>
-  );
-};
+
+const SelectOption=(props)=>{
+  return(
+    <option value={props.option}>{props.option}</option>
+  )
+}
 
 export default SelectOption;

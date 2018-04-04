@@ -1,18 +1,19 @@
-.array__area{
+.array__layout {
   width: 100%;
   display: flex;
+  flex-direction: column;
   padding: 50px;
 }
 
-.selection__area{
-  padding-top:50px;
+.selection__layout {
+  padding-top: 50px;
   flex: 1;
-  & select{
-    margin:0 0 30px 10px;
-    padding:3px 0;
+  & select {
+    margin: 0 0 30px 10px;
+    padding: 3px 0;
   }
 }
 
-label{
+label {
   font-size: 20px;
 }
