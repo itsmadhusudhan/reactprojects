@@ -1,10 +1,7 @@
 import React from "react";
 import SelectOption from "./SelectOption";
 import Methods from "./Methods";
-import Demo from "./Demo";
-import Output from "./Output";
 
-const demo = Demo.Demo;
 
 const Selection = props => {
   return (
@@ -43,15 +40,7 @@ const Selection = props => {
           )
       )}
 
-      {
-        demo.map(el=>{
-          return(
-            el.methods.map((elm,index)=>{
-              return props.selectedMethod===elm.shortDesc && props.selectedMethod!=="..."?<Output key={index} elm={elm}/>:""
-            })
-          )
-        })
-      }
+      
     </div>
   );
 };

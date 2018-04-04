@@ -24,7 +24,13 @@ export default {
       item: "remove items",
       title: "I need to remove",
       methods: {
-        child: ["...", "element/s from an array"]
+        child: [
+          "...",
+          "element/s from an array",
+          "the last element of the array",
+          "the first element of the array",
+          "one or more elements in order for use, leaving the array as is"
+        ]
       }
     },
     {

@@ -1,29 +1,62 @@
 import React from "react";
-import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
 import Header from "./Header";
 import Options from "./Options";
 import Selection from "./Selection";
 import Usage from "./Usage";
+import Demo from "./Demo";
+import Output from "./Output";
 
 const options = Options.Options;
+const demo = Demo.Demo;
 
 class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: "...",
-      selectedMethod: "..."
+      selectedMethod: "...",
+      methods: {
+        name: "",
+        shortDesc: "",
+        desc: "",
+        example: ""
+      }
     };
   }
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({
+      value: event.target.value,
+      selectedMethod: "..."
+    });
   };
 
   handleMethodChange = event => {
-    const method=document.getElementById("next__item");
+    const method = document.getElementById("next__item");
     this.setState(() => ({
       selectedMethod: method.value
     }));
+    // console.log(this.state.methods);
+    // this.handleMethodState();
+  };
+
+  handleMethodState = () => {
+    // demo.map(el => {
+    //   return el.methods.map((elm, index) => {
+    //     if (
+    //       this.state.selectedMethod === elm.shortDesc &&
+    //       this.state.selectedMethod !== "..."
+    //     ) {
+    //       return this.setState(() => ({
+    //         methods: {
+    //           name: elm.name,
+    //           shortDesc: elm.shortDesc,
+    //           desc: elm.desc,
+    //           example: elm.example
+    //         }
+    //       }));
+    //     }
+    //   });
+    // });
   };
 
   render() {
@@ -37,6 +70,10 @@ class Layout extends React.Component {
           handleMethodChange={this.handleMethodChange}
         />
         <Usage />
+        <Output
+          elm={this.state.methods}
+          selectedMethod={this.state.selectedMethod}
+        />
       </section>
     );
   }

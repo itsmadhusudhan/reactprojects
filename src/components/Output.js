@@ -1,12 +1,28 @@
 import React from "react";
+import Demo from "./Demo";
 
-const Output = (props) => {
+const demo = Demo.Demo;
+
+const Output = props => {
   return (
     <div className="output">
-      <h2 className="name">{props.elm.name}</h2>
-      <p className="desc">{props.elm.shortDesc}</p>
-      <p className="desc">{props.elm.desc}</p>
-      <p className="desc">{props.elm.example}</p>
+      {demo.map(el => {
+        return el.methods.map((elm, index) => {
+          if (
+            props.selectedMethod === elm.shortDesc &&
+            props.selectedMethod !== "..."
+          ) {
+            return (  
+              <div>
+                <h2 className="name">{elm.name}</h2>
+                <p className="desc">{elm.shortDesc}</p>
+                <p className="desc">{elm.desc}</p>
+                <p className="desc">{elm.example}</p>
+              </div>
+            );
+          }
+        });
+      })}
     </div>
   );
 };
