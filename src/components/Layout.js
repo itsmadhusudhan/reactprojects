@@ -15,14 +15,9 @@ class Layout extends React.Component {
     this.state = {
       value: "...",
       selectedMethod: "...",
-      methods: {
-        name: "",
-        shortDesc: "",
-        desc: "",
-        example: ""
-      }
     };
   }
+
   handleChange = event => {
     this.setState({
       value: event.target.value,
@@ -35,35 +30,34 @@ class Layout extends React.Component {
     this.setState(() => ({
       selectedMethod: method.value
     }));
-    // console.log(this.state.methods);
     // this.handleMethodState();
   };
 
   handleMethodState = () => {
-    // demo.map(el => {
-    //   return el.methods.map((elm, index) => {
-    //     if (
-    //       this.state.selectedMethod === elm.shortDesc &&
-    //       this.state.selectedMethod !== "..."
-    //     ) {
-    //       return this.setState(() => ({
-    //         methods: {
-    //           name: elm.name,
-    //           shortDesc: elm.shortDesc,
-    //           desc: elm.desc,
-    //           example: elm.example
-    //         }
-    //       }));
-    //     }
-    //   });
-    // });
+    demo.map(el => {
+      return el.methods.map((elm, index) => {
+        if (
+          this.state.selectedMethod === elm.shortDesc &&
+          this.state.selectedMethod !== "..."
+        ) {
+          return this.setState(() => ({
+            methods: {
+              name: elm.name,
+              shortDesc: elm.shortDesc,
+              desc: elm.desc,
+              example: elm.example
+            }
+          }));
+        }
+      });
+    });
   };
 
   render() {
     return (
       <section className="array__area">
         <Selection
-          options={options}
+          demo={demo}
           value={this.state.value}
           handleChange={this.handleChange}
           selectedMethod={this.state.selectedMethod}

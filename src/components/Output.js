@@ -15,9 +15,7 @@ const Output = props => {
             return (  
               <div>
                 <h2 className="name">{elm.name}</h2>
-                <p className="desc">{elm.shortDesc}</p>
                 <p className="desc">{elm.desc}</p>
-                <p className="desc">{elm.example}</p>
               </div>
             );
           }

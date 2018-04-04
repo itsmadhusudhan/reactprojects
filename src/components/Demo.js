@@ -1,9 +1,17 @@
 export default {
   Demo: [
     {
+      item: "...",
+      title: "...",
+      methods: [{ shortDesc: "..." }]
+    },
+    {
       item: "add item or other arrays",
       title: "I need to add",
       methods: [
+        {
+          shortDesc:"..."
+        },
         {
           name: "splice",
           shortDesc: "element/s to an array",
@@ -46,6 +54,9 @@ export default {
       item: "remove items",
       title: "I need to remove",
       methods: [
+        {
+          shortDesc:"..."
+        },
         {
           name: "splice",
           shortDesc: "element/s from an array",
