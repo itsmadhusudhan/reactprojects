@@ -13,6 +13,9 @@ const Selection = props => {
           defaultValue="..."
           onChange={props.handleChange}
         >
+        {
+          console.log(props.state)
+        }
           <option value="..." disabled>
             ...
           </option>

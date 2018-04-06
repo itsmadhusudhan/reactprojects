@@ -11,10 +11,18 @@ class ArrayLayout extends React.Component {
   //initialising states states
   state = state;
 
+  componentDidMount(){
+    <Selection
+    ArrayMethods={ArrayMethods}
+    selectedMethods={this.state.selectedMethods}
+    handleChange={this.handleChange}
+  />
+  }
+
   //to detect the change in selection input
   handleChange = e => {
     let option = "";
-    console.log(this.detectOption(e.target.value));
+    // console.log(this.detectOption(e.target.value));
     this.setState({
       selectedMethods: e.target.value,
       selectedOption: this.detectOption(e.target.value),
@@ -40,7 +48,7 @@ class ArrayLayout extends React.Component {
       ArrayMethods.primaryOptions[2];
       return "find";
     }
-    return;
+    return "iterate";
   };
 
   //to detect change in option selection
@@ -48,6 +56,17 @@ class ArrayLayout extends React.Component {
     this.setState({
       secondary: e.target.value
     });
+  };
+
+  //deciding output options
+  getOuputOptions = value => {
+    if (Array.isArray(this.state.state[this.state.selectedOption])) {
+      return (
+        this.state.selectedMethods &&
+        value.filter(el => el.shortDesc === this.state.secondary)[0]
+      );
+    }
+    return;
   };
 
   render() {
@@ -67,17 +86,20 @@ class ArrayLayout extends React.Component {
           selectedOption={this.state.selectedOption}
           type={this.state.type}
           secondary={this.state.secondary}
+
         />
-        {
-          console.log(this.state.selectedMethods && this.state.state[this.state.selectedOption].forEach(el=>el.shortDesc===this.state.secondary?el:""))
-        }
         <Usage
-          options={this.state.state[this.state.selectedOption]}
-          option={this.state.primaryOption}
+          option={this.getOuputOptions(
+            this.state.state[this.state.selectedOption]
+          )}
         />
       </div>
     );
   }
+}
+
+ArrayLayout.defaultProps={
+  state:"karnataka"
 }
 
 export default ArrayLayout;

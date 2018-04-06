@@ -10,7 +10,7 @@ const Selection = props => {
         return option === props.selectedMethods ? (
           <div id="option__method">
           {
-          console.log(props)
+          // console.log(props)
             
           }
             <label>
