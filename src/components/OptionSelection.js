@@ -7,15 +7,19 @@ const Selection = props => {
   return (
     <div className="selection__layout">
       {ArrayMethods.primaryOptions.map(option => {
-        return option === props.primaryOption ? (
+        return option === props.selectedMethods ? (
           <div id="option__method">
+          {
+          console.log(props)
+            
+          }
             <label>
               {props.type === "find"
                 ? ArrayMethods.findMethod
                 : ArrayMethods.methodOptions + " " + props.type}
             </label>
             {props.type !== "find" ? (
-              <select defaultValue="...">
+              <select defaultValue="..."onChange={props.handleOptionChange}>
                 <option value="..." disabled>
                   ...
                 </option>

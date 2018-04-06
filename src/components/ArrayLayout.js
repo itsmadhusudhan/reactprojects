@@ -5,6 +5,7 @@ import OptionSelection from "./OptionSelection";
 import ArrayMethods from "./utils/ArrayMethods";
 import state from "./utils/Methods";
 import "../scss/style.scss";
+import Usage from "./Usage";
 
 class ArrayLayout extends React.Component {
   //initialising states states
@@ -13,28 +14,33 @@ class ArrayLayout extends React.Component {
   //to detect the change in selection input
   handleChange = e => {
     let option = "";
-    if (e.target.value === ArrayMethods.primaryOptions[0]) {
-      option = "adding";
-    } else if (e.target.value === ArrayMethods.primaryOptions[1]) {
-      option = "removing";
-    } else if (e.target.value === ArrayMethods.primaryOptions[4]) {
-      option = "string";
-    } else if (e.target.value === ArrayMethods.primaryOptions[5]) {
-      option = "ordering";
-    } else if (e.target.value === ArrayMethods.primaryOptions[6]) {
-      option = "other";
-    } else if (e.target.value === ArrayMethods.primaryOptions[3]) {
-      option = "iterate";
-    } else if (e.target.value === ArrayMethods.primaryOptions[2]) {
-      ArrayMethods.primaryOptions[2];
-      option = "find";
-    }
+    console.log(this.detectOption(e.target.value));
     this.setState({
       selectedMethods: e.target.value,
-      selectedOption: option,
+      selectedOption: this.detectOption(e.target.value),
       type: e.target.value.split(" ")[0],
-      secondary:''
+      secondary: ""
     });
+  };
+
+  detectOption = value => {
+    if (value === ArrayMethods.primaryOptions[0]) {
+      return "adding";
+    } else if (value === ArrayMethods.primaryOptions[1]) {
+      return "removing";
+    } else if (value === ArrayMethods.primaryOptions[4]) {
+      return "string";
+    } else if (value === ArrayMethods.primaryOptions[5]) {
+      return "ordering";
+    } else if (value === ArrayMethods.primaryOptions[6]) {
+      return "other";
+    } else if (value === ArrayMethods.primaryOptions[3]) {
+      return "iterate";
+    } else if (value === ArrayMethods.primaryOptions[2]) {
+      ArrayMethods.primaryOptions[2];
+      return "find";
+    }
+    return;
   };
 
   //to detect change in option selection
@@ -50,11 +56,11 @@ class ArrayLayout extends React.Component {
         <Header />
         <Selection
           ArrayMethods={ArrayMethods}
-          primaryOption={this.state.selectedMethods}
+          selectedMethods={this.state.selectedMethods}
           handleChange={this.handleChange}
         />
         <OptionSelection
-          primaryOption={this.state.selectedMethods}
+          selectedMethods={this.state.selectedMethods}
           type={this.state.type}
           handleOptionChange={this.handleOptionChange}
           options={this.state.state[this.state.selectedOption]}
@@ -62,7 +68,13 @@ class ArrayLayout extends React.Component {
           type={this.state.type}
           secondary={this.state.secondary}
         />
-       
+        {
+          console.log(this.state.selectedMethods && this.state.state[this.state.selectedOption].forEach(el=>el.shortDesc===this.state.secondary?el:""))
+        }
+        <Usage
+          options={this.state.state[this.state.selectedOption]}
+          option={this.state.primaryOption}
+        />
       </div>
     );
   }
